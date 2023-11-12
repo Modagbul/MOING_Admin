@@ -48,11 +48,12 @@ fi
 
 sleep 40
 
+
 # 새로운 컨테이너가 제대로 실행되었는지 확인
 EXIST_AFTER=$(docker ps --filter name=${DOCKER_APP_NAME}-${AFTER_COMPOSE_COLOR} --filter status=running -q)
 if [ -n "$EXIST_AFTER" ]; then
     # nginx.config를 컨테이너에 맞게 변경해주고 reload 한다
-    cp ./nginx.${AFTER_COMPOSE_COLOR}.conf /etc/nginx/nginx.conf
+    sudo cp ./nginx.${AFTER_COMPOSE_COLOR}.conf /etc/nginx/nginx.conf
     sudo nginx -s reload
 
     # 이전 컨테이너 종료
