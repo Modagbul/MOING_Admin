@@ -1,5 +1,5 @@
 DOCKER_APP_NAME=meetup
-DOCKER_USERNAME=modagbul_bo
+DOCKER_USERNAME=modagbul
 
 # 최신 이미지 가져오기
 docker pull ${DOCKER_USERNAME}/moing_admin:blue
