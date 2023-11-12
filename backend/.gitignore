@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 ### STS ###
-.apt_generated
+.apt_generate
 .classpath
 .factorypath
 .project
@@ -37,3 +37,7 @@ out/
 .vscode/
 
 .DS_Store
+application.yml
+
+### Querydsl ###
+src/main/generated/
