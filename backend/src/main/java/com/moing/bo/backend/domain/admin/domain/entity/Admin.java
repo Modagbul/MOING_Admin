@@ -1,7 +1,7 @@
 package com.moing.bo.backend.domain.admin.domain.entity;
 
-import com.moing.bo.backend.domain.admin.domain.constant.ApprovedStatus;
 import com.moing.bo.backend.domain.admin.domain.constant.Role;
+import com.moing.bo.backend.global.entity.ApprovalStatus;
 import com.moing.bo.backend.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,12 +34,12 @@ public class Admin extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ApprovedStatus approvedStatus;
+    private ApprovalStatus approvedStatus;
 
     private LocalDateTime lastLogInDate;
 
     public boolean isApproved() {
-        return this.approvedStatus.equals(ApprovedStatus.APPROVED);
+        return this.approvedStatus.equals(ApprovalStatus.APPROVAL);
     }
 
     public void updateLogInDate() {
@@ -48,9 +48,9 @@ public class Admin extends BaseTimeEntity {
 
     public void changeAccounts(boolean isApproved) {
         if (isApproved) {
-            this.approvedStatus = ApprovedStatus.APPROVED;
+            this.approvedStatus = ApprovalStatus.APPROVAL;
         }
-        this.approvedStatus = ApprovedStatus.REJECTED;
+        this.approvedStatus = ApprovalStatus.REJECTION;
     }
 
     public void encodePassword(String password){

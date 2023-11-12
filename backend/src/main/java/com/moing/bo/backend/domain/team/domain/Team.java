@@ -1,6 +1,6 @@
 package com.moing.bo.backend.domain.team.domain;
 
-import com.moing.bo.backend.domain.team.domain.constant.ApprovalStatus;
+import com.moing.bo.backend.global.entity.ApprovalStatus;
 import com.moing.bo.backend.domain.team.domain.constant.Category;
 import com.moing.bo.backend.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;

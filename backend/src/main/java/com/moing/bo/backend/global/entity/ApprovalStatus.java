@@ -1,4 +1,4 @@
-package com.moing.bo.backend.domain.team.domain.constant;
+package com.moing.bo.backend.global.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

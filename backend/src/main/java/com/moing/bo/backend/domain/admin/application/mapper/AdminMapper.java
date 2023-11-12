@@ -1,7 +1,6 @@
 package com.moing.bo.backend.domain.admin.application.mapper;
 
 import com.moing.bo.backend.domain.admin.application.dto.request.SignUpRequest;
-import com.moing.bo.backend.domain.admin.domain.constant.ApprovedStatus;
 import com.moing.bo.backend.domain.admin.domain.constant.Role;
 import com.moing.bo.backend.domain.admin.domain.entity.Admin;
 import lombok.RequiredArgsConstructor;
