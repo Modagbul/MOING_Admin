@@ -1,5 +1,5 @@
 FROM openjdk:17-jdk
-ARG JAR_FILE=./build/libs/backend-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=./build/libs/backend-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 # 문서를 이미지의 /static/docs 디렉토리에 복사
