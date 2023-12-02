@@ -49,7 +49,7 @@ public class SecurityConfig {
                 )
                 // Request Authorization
                 .authorizeRequests(auth -> auth
-                        .requestMatchers("/css/**", "/js/**", "/img/**", "/api/auth/**", "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**").permitAll() // 해당 경로들은 접근을 허용
+                        .requestMatchers("/css/**", "/js/**", "/img/**", "/api/auth/**", "/swagger-ui/**", "/swagger-resources/**", "/v3/api-docs/**","/docs/**").permitAll() // 해당 경로들은 접근을 허용
                         .anyRequest().authenticated()
                 )
                 // Apply JWT Security Config

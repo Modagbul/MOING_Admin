@@ -1,4 +1,4 @@
-package com.moing.bo.backend.domain.team.domain;
+package com.moing.bo.backend.domain.team.domain.entity;
 
 import com.moing.bo.backend.domain.team.domain.constant.ApprovalStatus;
 import com.moing.bo.backend.domain.team.domain.constant.Category;
@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
+import java.time.ZoneId;
 
 @Builder
 @NoArgsConstructor
@@ -56,7 +56,34 @@ public class Team extends BaseTimeEntity {
     private LocalDateTime deletionTime;
 
     private Integer numOfMember; //반정규화
-
     private Integer levelOfFire;
 
+
+    public void approveTeam() {
+        this.approvalStatus = ApprovalStatus.APPROVAL;
+        this.approvalTime = LocalDateTime.now(ZoneId.of("Asia/Seoul")).withNano(0);
+    }
+
+    public void rejectTeam() {
+        this.approvalStatus = ApprovalStatus.REJECTION;
+    }
+
+    public void updateTeam(String name, String introduction, String profileImgUrl) {
+        this.name = name;
+        this.introduction = introduction;
+        this.profileImgUrl = profileImgUrl;
+    }
+
+    public void deleteTeam() {
+        this.isDeleted = true;
+        this.deletionTime = LocalDateTime.now(ZoneId.of("Asia/Seoul")).withNano(0);
+    }
+
+    public void addTeamMember() {
+        numOfMember++;
+    }
+
+    public void deleteTeamMember() {
+        numOfMember--;
+    }
 }

@@ -18,6 +18,6 @@ public class AdminGetService {
     }
 
     public boolean isDuplicatedId(String logInId) {
-        return adminRepository.findAdminByLoginId(logInId).isEmpty();
+        return adminRepository.findAdminByLoginId(logInId).isPresent();
     }
 }
