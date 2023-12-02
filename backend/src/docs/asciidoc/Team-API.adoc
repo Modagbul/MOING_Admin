@@ -1,0 +1,37 @@
+[[Team-API]]
+= Team API
+
+[[Team-새로운-소모임-조회]]
+== Team 새로운 소모임 조회
+operation::team-controller-test/get_team[snippets='http-request,query-parameters,http-response,response-fields']
+
+== Team Category
+|===
+| Category | Description
+
+| `SPORTS`
+| 스포츠/운동
+
+| `HABIT`
+| 생활습관 개선
+
+| `TEST`
+| 시험/취업준비
+
+| `STUDY`
+| 스터디/공부
+
+| `READING`
+| 독서
+
+| `ETC`
+| 그외 자기계발
+|===
+
+[[Team-소모임-승인하기]]
+== Team 소모임 승인하기
+operation::team-controller-test/approve_team[snippets='http-request,query-parameters,http-response,response-fields']
+
+[[Team-소모임-반려하기]]
+== Team 소모임 반려하기
+operation::team-controller-test/reject_team[snippets='http-request,query-parameters,http-response,response-fields']

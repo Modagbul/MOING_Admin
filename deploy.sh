@@ -1,9 +1,9 @@
 DOCKER_APP_NAME=meetup
-DOCKER_USERNAME=modagbul_bo
+DOCKER_USERNAME=modagbul
 
 # 최신 이미지 가져오기
-docker pull ${DOCKER_USERNAME}/moing_bo:blue
-docker pull ${DOCKER_USERNAME}/moing_bo:green
+docker pull ${DOCKER_USERNAME}/moing_admin:blue
+docker pull ${DOCKER_USERNAME}/moing_admin:green
 
 # 현재 실행 중인 컨테이너를 확인 (blue 또는 green)
 EXIST_BLUE=$(docker ps --filter name=${DOCKER_APP_NAME}-blue --filter status=running -q)
@@ -18,7 +18,7 @@ if [ -z "$EXIST_BLUE" ] && [ -z "$EXIST_GREEN" ]; then
         docker rm ${DOCKER_APP_NAME}-blue
     fi
     
-    docker run -d --name ${DOCKER_APP_NAME}-blue -p 8081:8080 ${DOCKER_USERNAME}/moing_bo:blue
+    docker run -d --name ${DOCKER_APP_NAME}-blue -p 8081:8080 ${DOCKER_USERNAME}/moing_admin:blue
     BEFORE_COMPOSE_COLOR="green"
     AFTER_COMPOSE_COLOR="blue"
 elif [ -z "$EXIST_BLUE" ]; then
@@ -29,7 +29,7 @@ elif [ -z "$EXIST_BLUE" ]; then
         docker rm ${DOCKER_APP_NAME}-blue
     fi
 
-    docker run -d --name ${DOCKER_APP_NAME}-blue -p 8081:8080 ${DOCKER_USERNAME}/moing_bo:blue
+    docker run -d --name ${DOCKER_APP_NAME}-blue -p 8081:8080 ${DOCKER_USERNAME}/moing_admin:blue
     BEFORE_COMPOSE_COLOR="green"
     AFTER_COMPOSE_COLOR="blue"
 else
@@ -40,7 +40,7 @@ else
         docker rm ${DOCKER_APP_NAME}-green
     fi
 
-    docker run -d --name ${DOCKER_APP_NAME}-green -p 8082:8080 ${DOCKER_USERNAME}/moing_bo:green
+    docker run -d --name ${DOCKER_APP_NAME}-green -p 8082:8080 ${DOCKER_USERNAME}/moing_admin:green
     BEFORE_COMPOSE_COLOR="blue"
     AFTER_COMPOSE_COLOR="green"
 fi
@@ -48,11 +48,12 @@ fi
 
 sleep 40
 
+
 # 새로운 컨테이너가 제대로 실행되었는지 확인
 EXIST_AFTER=$(docker ps --filter name=${DOCKER_APP_NAME}-${AFTER_COMPOSE_COLOR} --filter status=running -q)
 if [ -n "$EXIST_AFTER" ]; then
     # nginx.config를 컨테이너에 맞게 변경해주고 reload 한다
-    cp ./nginx.${AFTER_COMPOSE_COLOR}.conf /etc/nginx/nginx.conf
+    sudo cp ./nginx.${AFTER_COMPOSE_COLOR}.conf /etc/nginx/nginx.conf
     sudo nginx -s reload
 
     # 이전 컨테이너 종료
