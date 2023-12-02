@@ -16,7 +16,13 @@ public enum ErrorCode {
     INVALID_LOGINID_EXCEPTION("AU0001", "유효하지 않는 id입니다."),
     INVALID_PASSWORD_EXCEPTION("AU0002","비밀번호가 일치하지 않습니다."),
     NOT_APPROVED_EXCEPTION("AU0003","승인되지 않은 계정입니다"),
-    DUPLICATED_LOGINID_EXCEPTION("AU0004","중복된 id입니다");
+    DUPLICATED_LOGINID_EXCEPTION("AU0004","중복된 id입니다"),
+
+    //FCM 토큰 관련
+    INITIALIZE_ERROR("F0001", "Firebase Admin SDK 초기화에 실패했습니다."),
+    NOTIFICATION_ERROR("F0002", "메시지 전송에 실패했습니다."),
+    MESSAGING_ERROR("F0003", "firebaseConfigPath를 읽어오는데 실패하였습니다");
+
 
     private final String errorCode;
     private final String message;
