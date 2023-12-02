@@ -1,7 +1,7 @@
 package com.moing.bo.backend.domain.admin.domain.entity;
 
 import com.moing.bo.backend.domain.admin.domain.constant.Role;
-import com.moing.bo.backend.global.entity.ApprovalStatus;
+import com.moing.bo.backend.domain.team.domain.constant.ApprovalStatus;
 import com.moing.bo.backend.global.entity.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
