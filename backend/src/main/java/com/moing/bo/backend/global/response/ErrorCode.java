@@ -21,8 +21,10 @@ public enum ErrorCode {
     //FCM 토큰 관련
     INITIALIZE_ERROR("F0001", "Firebase Admin SDK 초기화에 실패했습니다."),
     NOTIFICATION_ERROR("F0002", "메시지 전송에 실패했습니다."),
-    MESSAGING_ERROR("F0003", "firebaseConfigPath를 읽어오는데 실패하였습니다");
+    MESSAGING_ERROR("F0003", "firebaseConfigPath를 읽어오는데 실패하였습니다"),
 
+
+    NOT_FOUND_BY_ALARM_HISOTRY_ID_ERROR("AH0001", "해당 alarmHistoryId인 알림이 존재하지 않습니다.");
 
     private final String errorCode;
     private final String message;
