@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface AlarmHistoryRepository extends JpaRepository<AlarmHistory, Long>, AlarmHistoryCustomRepository {
+public interface AlarmHistoryRepository extends JpaRepository<AlarmHistory, Long> {
 
     Optional<AlarmHistory> findAlarmHistoryByIdAndReceiverId(Long id, Long receiverId);
 
