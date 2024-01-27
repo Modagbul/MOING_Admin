@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.moing.bo.backend.domain.history.domain.entity.PagePath.HOME_PATH;
 import static com.moing.bo.backend.global.config.fcm.constant.ApproveTeamMessage.APPROVE_TEAM_MESSAGE;
@@ -32,6 +33,7 @@ public class ApproveTeamUseCase {
         for (GetLeaderInfoResponse info : leaderInfos) {
             String title = APPROVE_TEAM_MESSAGE.title(info.getLeaderName(), info.getTeamName());
             String body = APPROVE_TEAM_MESSAGE.body();
+
             saveAlarmHistoryUseCase.saveAlarmHistory(info.getLeaderId(), "", title, body, info.getTeamName(), AlarmType.APPROVE_TEAM, HOME_PATH.getValue());
             fcmService.sendSingleDevice(new SingleRequest(info.getLeaderFcmToken(), title, body));
         }

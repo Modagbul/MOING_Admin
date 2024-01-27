@@ -17,14 +17,6 @@ public class AlarmHistoryGetService {
 
     private final AlarmHistoryRepository alarmHistoryRepository;
 
-    public List<GetAlarmHistoryResponse> getAlarmHistories(Long memberId) {
-        return alarmHistoryRepository.findAlarmHistoriesByMemberId(memberId);
-    }
-
-    public AlarmHistory getAlarmHistory(Long alarmHistoryId, Long memberId) {
-        return alarmHistoryRepository.findAlarmHistoryByIdAndReceiverId(alarmHistoryId, memberId).orElseThrow(NotFoundAlarmHistoryException::new);
-    }
-
     public String getUnreadAlarmCount(Long memberId) {
         return alarmHistoryRepository.findUnreadAlarmCount(memberId);
     }
